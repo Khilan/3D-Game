@@ -24,6 +24,12 @@ public class WinController : MonoBehaviour {
 			gamecontroller.LivesValue -= 1;
 			Destroy (other.gameObject);
 		} 
+		if (other.gameObject.CompareTag ("medical")) {
+			//Transform playerTransform = other.gameObject.GetComponent<Transform>();
+			//	playerTransform.position= this.spawnPoint.position;
+			gamecontroller.ScoreValue += 50;
+			Destroy (other.gameObject);
+		}
 		else if (other.gameObject.CompareTag ("Finish"))
 		{
 			gamecontroller.WinValue += 10;
