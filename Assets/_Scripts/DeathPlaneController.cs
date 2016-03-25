@@ -27,12 +27,6 @@ public class DeathPlaneController : MonoBehaviour {
 			playerTransform.position= this.spawnPoint.position;
 			gamecontroller.LivesValue -= 1;
 		}
-		if (other.gameObject.CompareTag("crystal"))
-		{
-			//Transform playerTransform = other.gameObject.GetComponent<Transform>();
-			//	playerTransform.position= this.spawnPoint.position;
-			gamecontroller.ScoreValue += 10;
-		}
 		else
 		{
 			Destroy(other.gameObject);

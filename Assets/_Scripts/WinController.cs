@@ -18,15 +18,17 @@ public class WinController : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
-	/*	if (other.gameObject.CompareTag("Finish"))
-		{
-			Transform playerTransform = other.gameObject.GetComponent<Transform>();
-		//	playerTransform.position= this.spawnPoint.position;
+		if (other.gameObject.CompareTag ("crystal")) {
+			//Transform playerTransform = other.gameObject.GetComponent<Transform>();
+			//	playerTransform.position= this.spawnPoint.position;
 			gamecontroller.LivesValue -= 1;
-		}
-		else
+			Destroy (other.gameObject);
+		} 
+		else if (other.gameObject.CompareTag ("Finish"))
 		{
-			Destroy(other.gameObject);
-		} */
+			gamecontroller.WinValue += 10;
+		
+		}
 	}
+	
 }

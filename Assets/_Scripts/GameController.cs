@@ -65,9 +65,9 @@ public class GameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		this._initialize ();
+	this._initialize ();
 
-		Instantiate (this.player, this._playerspawnpoint, Quaternion.identity);
+		//Instantiate (this.player, this._playerspawnpoint, Quaternion.identity);
 
 	}
 	
@@ -77,6 +77,8 @@ public class GameController : MonoBehaviour {
 			this.WinLabel.gameObject.SetActive (true);
 			this.GameOverLabel.gameObject.SetActive (false);
 			this.HighScoreLabel.gameObject.SetActive (false);
+			this.LivesLabel.gameObject.SetActive (false);
+			this.ScoreLabel.gameObject.SetActive (false);
 			this.RestartButton.gameObject.SetActive (true);
 
 		}
@@ -86,7 +88,8 @@ public class GameController : MonoBehaviour {
 
 	//Initial Method
 	private void _initialize() {
-		this._playerspawnpoint = new Vector3 (0f,2f,-8f);
+	//	this._playerspawnpoint = new Vector3 (0f,2f,-8f);
+
 		this.ScoreValue = 0;
 		this.LivesValue = 5;
 		this.GameOverLabel.gameObject.SetActive (false);
