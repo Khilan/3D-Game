@@ -7,12 +7,23 @@ public class GameController : MonoBehaviour {
 	// PRIVATE INSTANCE VARIABLES
 	private int _scoreValue;
 	private int _livesValue;
+	private int _win;
 
 	private Vector3 _playerspawnpoint;
 	//[SerializeField]
 	private AudioSource _gameOverSound;
 
 	// PUBLIC ACCESS METHODS
+	public int WinValue{
+
+		get{ 
+			return this._win;
+		}
+		set {
+			this._win = value;
+		}
+	}
+
 	public int ScoreValue {
 		get {
 			return this._scoreValue;
@@ -50,6 +61,7 @@ public class GameController : MonoBehaviour {
 	public Text HighScoreLabel;
 	public Button RestartButton;
 	public GameObject player;
+	public Text WinLabel;
 
 	// Use this for initialization
 	void Start () {
@@ -61,7 +73,13 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (this._win == 10) {
+			this.WinLabel.gameObject.SetActive (true);
+			this.GameOverLabel.gameObject.SetActive (false);
+			this.HighScoreLabel.gameObject.SetActive (false);
+			this.RestartButton.gameObject.SetActive (true);
+
+		}
 	}
 
 	//PRIVATE METHODS ++++++++++++++++++
@@ -74,6 +92,7 @@ public class GameController : MonoBehaviour {
 		this.GameOverLabel.gameObject.SetActive (false);
 		this.HighScoreLabel.gameObject.SetActive (false);
 		this.RestartButton.gameObject.SetActive(false);
+		this.WinLabel.gameObject.SetActive (false);
 
 		/*
 		for (int cloudCount = 0; cloudCount < this.cloudNumber; cloudCount++) {
@@ -87,6 +106,7 @@ public class GameController : MonoBehaviour {
 		this.HighScoreLabel.gameObject.SetActive (true);
 		this.LivesLabel.gameObject.SetActive (false);
 		this.ScoreLabel.gameObject.SetActive (false);
+		this.WinLabel.gameObject.SetActive (false);
 		/*this.plane.gameObject.SetActive (false);
 		this.island.gameObject.SetActive (false); */
 		//this._gameOverSound.Play ();

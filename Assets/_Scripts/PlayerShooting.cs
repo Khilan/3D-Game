@@ -9,7 +9,7 @@ public class PlayerShooting : MonoBehaviour {
 	public GameObject bulletImpact;
 	public GameObject explosion;
 
-	public GameController GameController;
+	private GameController _gameController;
 
 	private Transform _transform;
 
@@ -17,6 +17,7 @@ public class PlayerShooting : MonoBehaviour {
 	void Start()
 	{
 		this._transform = gameObject.GetComponent<Transform>();
+		this._gameController = GameObject.FindWithTag("GameController").GetComponent("GameController") as GameController;
 	}
 
 	// Update is called once per frame
@@ -34,7 +35,7 @@ public class PlayerShooting : MonoBehaviour {
 				{
 					Instantiate(this.explosion, hit.point, Quaternion.identity);
 					Destroy(hit.transform.gameObject);
-					this.GameController.ScoreValue += 100;
+					this._gameController.ScoreValue += 100;
 				}
 				else {
 
