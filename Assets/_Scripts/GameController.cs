@@ -10,8 +10,12 @@ public class GameController : MonoBehaviour {
 	private int _win;
 
 	private Vector3 _playerspawnpoint;
-	//[SerializeField]
+
+	[SerializeField]
 	private AudioSource _gameOverSound;
+
+	[SerializeField]
+	private AudioSource _gameSound;
 
 	// PUBLIC ACCESS METHODS
 	public int WinValue{
@@ -80,7 +84,7 @@ public class GameController : MonoBehaviour {
 			this.LivesLabel.gameObject.SetActive (false);
 			this.ScoreLabel.gameObject.SetActive (false);
 			this.RestartButton.gameObject.SetActive (true);
-
+			this._gameOverSound.Play ();
 		}
 	}
 
@@ -114,6 +118,7 @@ public class GameController : MonoBehaviour {
 		this.island.gameObject.SetActive (false); */
 		//this._gameOverSound.Play ();
 		this.RestartButton.gameObject.SetActive (true);
+		this._gameSound.Play ();
 	}
 
 	// PUBLIC METHODS
